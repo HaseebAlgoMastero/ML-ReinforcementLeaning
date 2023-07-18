@@ -53,3 +53,28 @@ Because RL does not need supervision, it is vital to distinguish it from unsuper
 The K-armed bandit (also known as the Multi-Armed Bandit problem) is a simple, yet powerful example of allocation of a limited set of resources over time and under uncertainty. It has been initially studied by Thompson (1933), who suggested a heuristic for navigating the exploration-exploitation dilemma. The problem has also been studied in the fields of computer science, operations research, probability theory, and economics, and is well suited for exploring with the tools of reinforcement learning.
 
 In its basic form, the problem considers a gambler standing in front of a row of K slot machines (also known as one-armed bandits) and trying to conceive a strategy for which machine to play, for how many times, and when to switch machines in order to increase the chances of making a profit. What makes this premise interesting is that each of the bandits dispenses rewards according to a probability distribution, which is specific to the bandit and is initially unknown to the gambler. The optimal strategy, therefore, would involve striking a balance between learning more about the individual probability distributions (exploration) and maximising the profits based on the information acquired so far (exploitation).
+
+<h2>#Solving Multi Armed Bandit Problem</h2>
+There are many different types of multi-armed bandit strategies, each with their own pros and cons in terms of implementation and regret bounds. For the sake of brevity, in this post we will not go into the mathematical details of the strategies, but simply share some popular strategies at a high conceptual level:
+
+Epsilon-Greedy
+- Choose arm with best empirical reward with probability 1-ε
+- Choose arm uniformly at random with probability ε
+Decayed Epsilon-Greedy
+- Perform Epsilon-Greedy strategy, but let ε shrink over time to reduce exploration when we are more confident about our expected reward estimates
+Upper Confidence Bound (UCB1)
+- Construct confidence intervals for each arm’s expected reward
+- Choose the arm whose upper confidence interval bound is the largest
+Thompson Sampling
+- Take a Bayesian approach and set priors for each arm’s reward distribution
+- With each new reward estimate, update posterior distributions
+- Sample from each arm’s posterior, and choose arm with the largest sample
+As a side note, the applications that we have built at Udemy using our MAB system have primarily utilized the Thompson Sampling strategy.
+
+Using Multi-Armed Bandits for Recommendations
+The recommendations domain contains perfect applications for multi-armed bandits. In a general recommendations problem, our goal is to recommend the best items to our users, where “best” is defined according to some type of user feedback. Then the recommendations problem can be framed as a bandit problem as follows:
+
+The set of candidate items to recommend is the set of arms to play (each item is an arm)
+Displaying a particular recommended item to a user for a given amount of time is equivalent to “playing that arm”
+The user’s feedback when shown the recommended item, such as clicks, thumbs up or enrollments (in the case of recommended courses at Udemy), is the observed reward (i.e., the reward that is sampled from the item’s unknown reward distribution)
+The goal is to determine the items with the highest reward payouts as quickly as possible by dynamically recommending various items to the user in a way that balances exploration with exploitation
