@@ -78,3 +78,10 @@ The set of candidate items to recommend is the set of arms to play (each item is
 Displaying a particular recommended item to a user for a given amount of time is equivalent to “playing that arm”
 The user’s feedback when shown the recommended item, such as clicks, thumbs up or enrollments (in the case of recommended courses at Udemy), is the observed reward (i.e., the reward that is sampled from the item’s unknown reward distribution)
 The goal is to determine the items with the highest reward payouts as quickly as possible by dynamically recommending various items to the user in a way that balances exploration with exploitation
+
+<h2>#Future of reinforcement learning</h2>
+Tremendous development has been achieved in the field of deep reinforcement learning in past decades. Deep reinforcement learning models the value function (value-based) or the agent’s policy (policy-based) or both (actor-critic). Complex characteristics had to be designed to train an RL algorithm prior to the mainstream popularity of deep neural networks. As a result, learning ability was limited, restricting the scope of RL to basic contexts.
+
+Models may be generated using deep learning employing millions of trainable weights, saving the user from arduous feature engineering. During the training phase, relevant characteristics are created automatically, allowing the agent to learn optimum rules in complicated contexts.
+
+Traditionally, RL is used on a single job at a time. Each job is taught to a different RL agent, and these agents do not share their information. Learning complicated activities, such as driving a car, becomes inefficient and sluggish as a result. Problems with a shared information source, linked underlying structure, and interdependence can benefit greatly from enabling numerous actors to collaborate. By training several agents concurrently, multiple agents can share the same representation of the system, enabling advancements in one agent’s efficiency to be exploited by another.
