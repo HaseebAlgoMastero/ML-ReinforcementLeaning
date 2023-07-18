@@ -18,7 +18,7 @@ Here, we enforce or try to force a correct action in a certain way.
 So, in short, reinforcement learning is the type of learning methodology where we give rewards of feedback to the algorithm to learn from and improve future results.
 
 <h2>#Terminology in reinforcement learning:</h2>
-1. <h2>Agent:</h2>
+ <h2>Agent:</h2>
 An entity that perceives, understands and interacts with its environment
 
 2. <h2>Environment:</h2>
